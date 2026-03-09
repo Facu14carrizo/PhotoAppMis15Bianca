@@ -18,32 +18,53 @@ const stars = generateStars(200); // Aumentamos a 200 estrellas
 export default function NightSkyBackground() {
     return (
         <div className="fixed inset-0 z-0 overflow-hidden bg-gradient-to-b from-[#050510] via-[#0a0a20] to-[#000000] pointer-events-none">
-            {/* Luna Creciente */}
+            {/* Luna Creciente Premium */}
             <div className="absolute top-20 right-6 md:top-28 md:right-20 animate-float opacity-100 z-0 scale-[1.5]">
-                <svg width="180" height="180" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_50px_rgba(255,255,255,0.9)]">
-                    <path
-                        d="M78.5 18.5C72.5 25.5 68.5 35.5 68.5 48.5C68.5 70.5914 86.4086 88.5 108.5 88.5C108.5 88.5 78.5 108.5 48.5 78.5C25.5 55.5 48.5 18.5 78.5 18.5Z"
-                        fill="#F2F2F2"
-                        stroke="none"
-                    />
-                    {/* Brillo interno */}
-                    <path
-                        d="M78.5 18.5C72.5 25.5 68.5 35.5 68.5 48.5C68.5 70.5914 86.4086 88.5 108.5 88.5C108.5 88.5 78.5 108.5 48.5 78.5C25.5 55.5 48.5 18.5 78.5 18.5Z"
-                        fill="url(#moon-gradient)"
-                        fillOpacity="0.3"
-                        stroke="none"
-                    />
+                {/* Glow/Halo exterior suave */}
+                <div className="absolute inset-0 rounded-full bg-white/10 blur-[60px] scale-150" />
+                <div className="absolute inset-0 rounded-full bg-silver-200/5 blur-[40px] scale-125" />
+
+                <svg width="180" height="180" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_45px_rgba(255,255,255,0.8)] filter">
                     <defs>
-                        <radialGradient id="moon-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(68.5 48.5) rotate(90) scale(40)">
-                            <stop stopColor="white" stopOpacity="0.8" />
-                            <stop offset="1" stopColor="#E5E7EB" stopOpacity="0.2" />
+                        {/* Degradado metálico aperlado */}
+                        <linearGradient id="moon-surface" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stopColor="#FFFFFF" />
+                            <stop offset="50%" stopColor="#F8FAFC" />
+                            <stop offset="100%" stopColor="#E2E8F0" />
+                        </linearGradient>
+
+                        {/* Brillo interno suave */}
+                        <radialGradient id="inner-glow" cx="70%" cy="35%" r="50%">
+                            <stop offset="0%" stopColor="white" stopOpacity="0.8" />
+                            <stop offset="100%" stopColor="white" stopOpacity="0" />
                         </radialGradient>
+
+                        {/* Máscara para la forma de la luna */}
+                        <mask id="moon-mask">
+                            <path d="M78.5 18.5C72.5 25.5 68.5 35.5 68.5 48.5C68.5 70.5914 86.4086 88.5 108.5 88.5C108.5 88.5 78.5 108.5 48.5 78.5C25.5 55.5 48.5 18.5 78.5 18.5Z" fill="white" />
+                        </mask>
                     </defs>
 
-                    {/* Cráteres sutiles restaurados para detalle */}
-                    <circle cx="60" cy="50" r="3" fill="rgba(0,0,0,0.15)" />
-                    <circle cx="70" cy="65" r="5" fill="rgba(0,0,0,0.15)" />
-                    <circle cx="55" cy="70" r="2" fill="rgba(0,0,0,0.15)" />
+                    {/* Forma principal de la luna */}
+                    <path
+                        d="M78.5 18.5C72.5 25.5 68.5 35.5 68.5 48.5C68.5 70.5914 86.4086 88.5 108.5 88.5C108.5 88.5 78.5 108.5 48.5 78.5C25.5 55.5 48.5 18.5 78.5 18.5Z"
+                        fill="url(#moon-surface)"
+                    />
+
+                    {/* Brillo interno sobre la superficie */}
+                    <path
+                        d="M78.5 18.5C72.5 25.5 68.5 35.5 68.5 48.5C68.5 70.5914 86.4086 88.5 108.5 88.5C108.5 88.5 78.5 108.5 48.5 78.5C25.5 55.5 48.5 18.5 78.5 18.5Z"
+                        fill="url(#inner-glow)"
+                        style={{ mixBlendMode: 'overlay' }}
+                    />
+
+                    {/* Cráteres detallados (usando la máscara) */}
+                    <g mask="url(#moon-mask)" style={{ opacity: 0.15 }}>
+                        <circle cx="60" cy="50" r="4" fill="#000" />
+                        <circle cx="75" cy="65" r="6" fill="#000" />
+                        <circle cx="55" cy="72" r="3" fill="#000" />
+                        <circle cx="45" cy="45" r="2" fill="#000" />
+                    </g>
                 </svg>
             </div>
 

@@ -36,7 +36,7 @@ export default function Login({ onLogin }: LoginProps) {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-zinc-200 to-zinc-500 mb-4 shadow-lg float">
                         <Moon className="text-midnight-dark" size={32} />
                     </div>
-                    <h1 className="text-3xl font-bold gradient-text mb-2">Mis 15 Bianca</h1>
+                    <h1 className="text-4xl font-bold gradient-text mb-2 font-display">Mis 15 Bianca</h1>
                     <p className="text-gray-400">Ingresa para comenzar a compartir fotos</p>
                 </div>
 
@@ -72,7 +72,7 @@ export default function Login({ onLogin }: LoginProps) {
 
                     <button
                         type="submit"
-                        className="w-full btn-primary text-white py-3.5 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 group"
+                        className="w-full btn-primary py-3.5 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 group"
                     >
                         <span>Ingresar</span>
                         <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

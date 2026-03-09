@@ -322,7 +322,7 @@ function App() {
                   <div className="absolute inset-0 blur-lg bg-zinc-400/30 animate-pulse" />
                 </div>
                 <div className="flex flex-col">
-                  <h1 className="text-2xl md:text-3xl font-bold gradient-text">
+                  <h1 className="text-2xl md:text-3xl font-bold gradient-text font-display">
                     Mis 15 Bianca
                   </h1>
                   {photos.length > 0 && (

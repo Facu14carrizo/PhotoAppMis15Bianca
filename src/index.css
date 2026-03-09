@@ -82,7 +82,12 @@
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(to right, #f5f5f7, #ffffff, #d4d4d8);
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    letter-spacing: -0.02em;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', serif;
   }
 
   .gradient-border {
@@ -106,14 +111,15 @@
 
   .btn-primary {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
-    box-shadow: 0 4px 15px 0 rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 50%, #94a3b8 100%);
+    box-shadow: 0 4px 15px 0 rgba(148, 163, 184, 0.4);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #020617;
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px 0 rgba(255, 255, 255, 0.3);
   }
 
   .btn-primary:active {
